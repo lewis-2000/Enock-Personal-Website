@@ -13,8 +13,10 @@ TemplateManagerAPI.registerTemplate({
         logo: "/FLWeb/logo.png", // Image URL for logo
         links: [
           { name: "Home", url: "#" },
-          { name: "About", url: "#" },
+          { name: "About Me", url: "#" },
           { name: "Services", url: "#" },
+          { name: "Projects", url: "#" },
+          { name: "Blog", url: "#" },
           { name: "Contact", url: "#" },
         ],
       },
@@ -24,9 +26,18 @@ TemplateManagerAPI.registerTemplate({
       component: V2Hero,
       data: {
         heading: "Welcome to the V25 Hero Section",
-        title: "Hero Title",
+        title: "Hey Hi👋",
+        name: "Enoch Murbi",
+        profession: "UI/UX Designer",
+        heroBg: "/hero.jpg", // BG Image URL
+        cvUrl: "/V2/cv.pdf", // url for the pdf
         subtitle: "Hero Subtitle",
         bgUrl: "/FLWeb/bubbles.mp4", // Image URL
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "scroll",
+        textColor: "white",
       },
       settings: {},
     },

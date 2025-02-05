@@ -1,10 +1,13 @@
 import React from "react";
+import { GiStarFormation } from "react-icons/gi";
 
 interface HeroProps {
   title: string;
-  subTitle: string;
+  profession: string;
   name: string;
-  heroBg: string | null; // Use null if no image is provided
+  heroButtonText: string;
+  heroBg: string | null;
+  selfBg: string | null; // Use null if no image is provided for self-portrait section. If heroBg is provided, selfBg will be ignored.
   callToAction: string;
   linkText: string;
   linkURL: string;
@@ -16,59 +19,66 @@ interface HeroProps {
 
 const V2Hero: React.FC<HeroProps> = ({
   title,
-  subTitle,
+  profession,
   name,
   heroBg,
-  linkText,
+  selfBg,
+  // linkText,
+  heroButtonText,
   linkURL,
   backgroundAttachment,
   backgroundPosition,
   backgroundRepeat,
   backgroundSize,
 }) => {
-  const backgroundStyle = heroBg
-    ? {
-        background: `url(${heroBg})`,
+  return (
+    <div
+      className="flex flex-col md:flex-row h-screen w-screen justify-between items-center px-10 md:px-20 bg-black text-white"
+      style={{
+        backgroundImage: heroBg ? `url(${heroBg})` : "none",
         backgroundSize: backgroundSize,
         backgroundPosition: backgroundPosition,
         backgroundRepeat: backgroundRepeat,
         backgroundAttachment: backgroundAttachment,
-      }
-    : {
-        background: "linear-gradient(to bottom, black, green)",
-      };
-
-  return (
-    <div
-      className="flex h-screen w-screen justify-around items-center overflow-x-hidden"
-      style={backgroundStyle}
+      }}
     >
-      {/* Hero Content */}
-      <div className="text-white p-6">
-        <p>{title}</p>
-        <h1 className="text-4xl font-bold">
-          I'm <span>{name}</span>
+      {/* Hero Text Content */}
+      <div className="max-w-xl space-y-4 text-start z-30">
+        <p className="text-yellow-500 text-lg">{title}</p>
+        <h1 className="text-5xl font-bold">
+          I'm <span className="text-white">{name}</span>
         </h1>
-        <p className="text-xl text-gray-300">{subTitle}</p>
-        <a
-          href={linkURL}
-          className="mt-8 inline-block text-white font-bold hover:text-yellow-500"
-        >
-          {linkText}
-        </a>
+        <p className="text-3xl font-semibold text-green-400 flex items-center">
+          <GiStarFormation className="mr-2" /> {profession}
+        </p>
+        <p className="text-gray-300">
+          A blend of creativity, empathy, and technical expertise. I strive to
+          design interfaces that not only look good but engage users at every
+          interaction.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex space-x-4 mt-6">
+          <a
+            href={linkURL}
+            className="px-6 py-3 bg-green-500 text-black font-semibold rounded-lg shadow-lg hover:bg-green-400"
+          >
+            {heroButtonText}
+          </a>
+          <button className="px-6 py-3 bg-transparent border border-white rounded-lg hover:bg-white hover:text-black">
+            🎥 Intro Video
+          </button>
+        </div>
       </div>
 
       {/* Hero Image */}
-      <div
-        className="relative rounded-full p-20 bg-green-950"
-        style={{
-          boxShadow: "0 0 25px 10px green",
-        }}
-      >
+      <div className="relative">
+        <div className="absolute inset-0 bg-blue-500 opacity-30 rounded-full w-80 h-80 blur-md"></div>
         <img
-          src={heroBg || "/path/to/default-image.jpg"}
+          src={selfBg || "/path/to/default-image.jpg"}
           alt="Hero"
-          className="rounded-full w-48 h-48 object-cover"
+          className="rounded-full w-80 h-80 object-cover border-noneshadow-lg z-10"
+          style={{ position: "relative", top: "-10px" }}
         />
       </div>
     </div>

@@ -7,7 +7,7 @@ interface NavbarProps {
 
 const V2Nav: React.FC<NavbarProps> = ({ links }) => {
   return (
-    <nav className="absolute w-screen flex content-center justify-around py-6 border-b-2 border-green-800 overflow-x-hidden z-100">
+    <nav className="px-3 backdrop-blur-md md:backdrop-blur-none md:absolute bg-black md:bg-transparent w-screen flex content-center justify-around py-6 border-b-2 border-green-800 overflow-x-hidden z-100">
       {/* Logo */}
       <div className="gap-4 flex">
         <FaDev className=" text-3xl text-white" />
@@ -15,7 +15,7 @@ const V2Nav: React.FC<NavbarProps> = ({ links }) => {
       </div>
 
       {/* Navigation Menu */}
-      <ul className="flex flex-row gap-4">
+      <ul className="flex flex-row gap-4 md:hidden">
         {links.map((link, index) => (
           <li key={index}>
             <a href={link.url} className="hover:underline">

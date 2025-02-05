@@ -1,7 +1,8 @@
-import V2Body from "../components/V2Body";
+import TemplateManagerAPI from "./templateManagerAPI";
+
 import V2Hero from "../components/V2Hero";
 import V2Nav from "../components/V2Nav";
-import TemplateManagerAPI from "./templateManagerAPI";
+import V2Body from "../components/V2Body";
 
 TemplateManagerAPI.registerTemplate({
   id: "enoch",
@@ -29,7 +30,9 @@ TemplateManagerAPI.registerTemplate({
         title: "Hey Hi👋",
         name: "Enoch Murbi",
         profession: "UI/UX Designer",
-        heroBg: "/hero.jpg", // BG Image URL
+        selfBg: "/self.png",
+        heroBg: "/heroBg.png", // BG Image URL
+        heroButtonText: "Download CV",
         cvUrl: "/V2/cv.pdf", // url for the pdf
         subtitle: "Hero Subtitle",
         bgUrl: "/FLWeb/bubbles.mp4", // Image URL
@@ -43,7 +46,16 @@ TemplateManagerAPI.registerTemplate({
     },
     {
       component: V2Body,
-      data: {},
+      data: {
+        Galery1Url: "/empower.png",
+        Galery2Url: "/empower.png",
+        Galery3Url: "/empower.png",
+        Galery4Url: "/empower.png",
+
+        HeaderBgUrl: "/flowerField.jpg",
+        AboutDetails:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam natus aperiam distinctio eius at saepe possimus, eaque neque voluptatibus!",
+      },
       settings: {},
     },
   ],

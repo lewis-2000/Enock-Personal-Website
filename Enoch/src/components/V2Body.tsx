@@ -1,10 +1,34 @@
 import React from "react";
+import MiniGalery from "./subcomponents/MiniGalery";
+import About from "./subcomponents/About";
 
-const V2Body: React.FC = () => {
+interface BodyProps {
+  Galery1Url: string;
+  Galery2Url: string;
+  Galery3Url: string;
+  Galery4Url: string;
+  HeaderBgUrl: string;
+  AboutDetails: string;
+}
+
+const V2Body: React.FC<BodyProps> = ({
+  Galery1Url,
+  Galery2Url,
+  Galery3Url,
+  Galery4Url,
+  HeaderBgUrl,
+  AboutDetails,
+}) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-screen">
-      <h1 className="text-4xl font-bold">V2 Body</h1>
-      <p className="text-lg">This is the body section of the V2 template.</p>
+    <div className="flex flex-col min-h-screen w-screen">
+      <MiniGalery
+        Gallery1Src={Galery1Url}
+        Gallery2Src={Galery2Url}
+        Gallery3Src={Galery3Url}
+        Gallery4Src={Galery4Url}
+      />
+
+      <About AboutDetails={AboutDetails} HeaderBgUrl={HeaderBgUrl} />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { GiStarFormation } from "react-icons/gi";
 interface HeroProps {
   title: string;
   profession: string;
+  professionDescription: string;
   name: string;
   heroButtonText: string;
   heroBg: string | null;
@@ -20,12 +21,13 @@ interface HeroProps {
 const V2Hero: React.FC<HeroProps> = ({
   title,
   profession,
+  professionDescription,
   name,
   heroBg,
   selfBg,
   // linkText,
   heroButtonText,
-  linkURL,
+  // linkURL,
   backgroundAttachment,
   backgroundPosition,
   backgroundRepeat,
@@ -33,7 +35,7 @@ const V2Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <div
-      className="flex flex-col md:flex-row h-screen w-screen justify-between items-center px-10 md:px-20 bg-black text-white"
+      className="flex flex-col-reverse md:flex-row min-h-screen w-screen justify-between gap-5 md:gap-0 items-center px-10 md:px-20 bg-black py-[calc(0.4*100%)] md:py-3 text-white"
       style={{
         backgroundImage: heroBg ? `url(${heroBg})` : "none",
         backgroundSize: backgroundSize,
@@ -51,20 +53,16 @@ const V2Hero: React.FC<HeroProps> = ({
         <p className="text-3xl font-semibold text-green-400 flex items-center">
           <GiStarFormation className="mr-2" /> {profession}
         </p>
-        <p className="text-gray-300">
-          A blend of creativity, empathy, and technical expertise. I strive to
-          design interfaces that not only look good but engage users at every
-          interaction.
-        </p>
+        <p className="text-gray-300">{professionDescription}</p>
 
         {/* CTA Buttons */}
         <div className="flex space-x-4 mt-6">
-          <a
-            href={linkURL}
+          <button
+            // href={linkURL}
             className="px-6 py-3 bg-green-500 text-black font-semibold rounded-lg shadow-lg hover:bg-green-400"
           >
             {heroButtonText}
-          </a>
+          </button>
           <button className="px-6 py-3 bg-transparent border border-white rounded-lg hover:bg-white hover:text-black">
             🎥 Intro Video
           </button>
@@ -77,8 +75,13 @@ const V2Hero: React.FC<HeroProps> = ({
         <img
           src={selfBg || "/path/to/default-image.jpg"}
           alt="Hero"
-          className="rounded-full w-80 h-80 object-cover border-noneshadow-lg z-10"
-          style={{ position: "relative", top: "-10px" }}
+          className="rounded-full w-80 h-80 object-cover border-none shadow-lg z-10 overflow-y-visible" // Add overflow-visible class
+          style={{
+            position: "relative",
+            top: "-10px",
+            overflowY: "visible",
+            overflowX: "hidden",
+          }}
         />
       </div>
     </div>

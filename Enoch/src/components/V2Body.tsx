@@ -9,6 +9,9 @@ interface BodyProps {
   Galery4Url: string;
   HeaderBgUrl: string;
   AboutDetails: string;
+  AboutTitle: string;
+  AboutSubtitle: string;
+  aboutImages: string[];
 }
 
 const V2Body: React.FC<BodyProps> = ({
@@ -16,8 +19,11 @@ const V2Body: React.FC<BodyProps> = ({
   Galery2Url,
   Galery3Url,
   Galery4Url,
-  HeaderBgUrl,
+  // HeaderBgUrl,
   AboutDetails,
+  AboutTitle,
+  AboutSubtitle,
+  aboutImages,
 }) => {
   return (
     <div className="flex flex-col min-h-screen w-screen">
@@ -28,7 +34,12 @@ const V2Body: React.FC<BodyProps> = ({
         Gallery4Src={Galery4Url}
       />
 
-      <About AboutDetails={AboutDetails} HeaderBgUrl={HeaderBgUrl} />
+      <About
+        AboutDetails={AboutDetails}
+        HeaderBgUrls={aboutImages}
+        AboutSubtitle={AboutSubtitle}
+        AboutTitle={AboutTitle}
+      />
     </div>
   );
 };

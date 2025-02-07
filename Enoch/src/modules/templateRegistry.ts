@@ -30,6 +30,8 @@ TemplateManagerAPI.registerTemplate({
         title: "Hey Hi👋",
         name: "Enoch Murbi",
         profession: "UI/UX Designer",
+        professionDescription:
+          "A blend of creativity, empathy, and technical expertise. I strive to design interfaces that not only look good but engage users at every interaction.",
         selfBg: "/self.png",
         heroBg: "/heroBg.png", // BG Image URL
         heroButtonText: "Download CV",
@@ -47,10 +49,20 @@ TemplateManagerAPI.registerTemplate({
     {
       component: V2Body,
       data: {
+        AboutTitle: "About Title",
+        AboutSubtitle: "About Subtitle",
         Galery1Url: "/empower.png",
         Galery2Url: "/empower.png",
         Galery3Url: "/empower.png",
         Galery4Url: "/empower.png",
+
+        aboutImages: [
+          "/Depot/Image1.jpg",
+          "/Depot/Image2.jpg",
+          "/Depot/Image1.jpg",
+          "/Depot/Image2.jpg",
+          "/Depot/Image1.jpg",
+        ],
 
         HeaderBgUrl: "/flowerField.jpg",
         AboutDetails:
